@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0f766e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="DDI Checker">
+  <meta name="format-detection" content="telephone=no">
+  <title>بررسی تداخل دارویی</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <div class="badge">نسخه آزمایشی پزشک</div>
+      <h1>بررسی تداخل دارویی</h1>
+      <p>دو نام دارو را به فارسی یا انگلیسی وارد کنید.</p>
+    </header>
+
+    <section class="card form-card" aria-label="فرم بررسی تداخل">
+      <div class="field-wrap">
+        <label for="drug1">داروی اول</label>
+        <div class="autocomplete">
+          <input id="drug1" type="text" autocomplete="off" autocapitalize="none"
+                 placeholder="مثلاً بروفن یا Ibuprofen">
+          <div class="suggestions" id="sug1" hidden></div>
+        </div>
+      </div>
+
+      <button class="swap" id="swapBtn" type="button" aria-label="جابه‌جایی دو دارو">⇅</button>
+
+      <div class="field-wrap">
+        <label for="drug2">داروی دوم</label>
+        <div class="autocomplete">
+          <input id="drug2" type="text" autocomplete="off" autocapitalize="none"
+                 placeholder="مثلاً وارفارین یا Warfarin">
+          <div class="suggestions" id="sug2" hidden></div>
+        </div>
+      </div>
+
+      <button class="primary" id="checkBtn" type="button">
+        <span id="btnText">بررسی تداخل</span>
+        <span id="spinner" class="spinner" hidden></span>
+      </button>
+    </section>
+
+    <section id="status" class="status" aria-live="polite"></section>
+    <section id="resolved" class="resolved" hidden></section>
+    <section id="results" class="results"></section>
+
+    <section class="notice">
+      <strong>توجه:</strong>
+      این ابزار برای ارزیابی آزمایشی است. «یافت نشدن تداخل» فقط به معنی نبود رکورد در این دیتاست است
+      و نباید به‌تنهایی مبنای تصمیم درمانی قرار گیرد.
+    </section>
+
+    <footer>
+      <span id="dataInfo">در حال آماده‌سازی داده‌ها…</span>
+      <span>•</span>
+      <span>آفلاین پس از اولین بارگذاری</span>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
